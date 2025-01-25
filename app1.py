@@ -95,5 +95,15 @@ def predict():
         "Recommendations": recommendations
     })
 
+from flask import Flask
+
+app = Flask(__name__)
+
+# Welcome route
+@app.route('/')
+def welcome():
+    return "Welcome to NutrigenoScope!"
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Bind to all network interfaces and specify the port
+    app.run(debug=False, host='0.0.0.0', port=10000)
